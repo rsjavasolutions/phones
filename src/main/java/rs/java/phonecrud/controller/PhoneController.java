@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/")
 public class PhoneController {
 
     private PhoneRepository phoneRepository;
@@ -19,7 +19,7 @@ public class PhoneController {
         this.phoneRepository = phoneRepository;
     }
 
-    @GetMapping("/phones")
+    @GetMapping("phones")
     public Iterable<Phone> allPhones() {
         return phoneRepository.findAll();
     }
@@ -37,4 +37,10 @@ public class PhoneController {
             return phoneRepository.findAll();
         }
     }
+
+    @PostMapping("phones")
+    public Phone addPhone (@RequestBody Phone phone){
+        return phoneRepository.save(phone);
+    }
+
 }
