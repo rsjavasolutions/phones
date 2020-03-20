@@ -15,12 +15,12 @@ public class Phone {
     private String model;
     private BigDecimal price;
     private LocalDate production;
-    private boolean isNew;
+    private Boolean isNew;
 
     public Phone() {
     }
 
-    public Phone(int id, String brand, String model, BigDecimal price, LocalDate production, boolean isNew) {
+    public Phone(int id, String brand, String model, BigDecimal price, LocalDate production, Boolean isNew) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -69,11 +69,11 @@ public class Phone {
         this.production = production;
     }
 
-    public boolean isNew(boolean b) {
+    public Boolean getNew() {
         return isNew;
     }
 
-    public void setNew(boolean aNew) {
+    public void setNew(Boolean aNew) {
         isNew = aNew;
     }
 }

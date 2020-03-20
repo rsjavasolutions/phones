@@ -29,7 +29,7 @@ public class PhoneData implements CommandLineRunner {
         phone1.setModel("11");
         phone1.setPrice(new BigDecimal("3890.99"));
         phone1.setProduction(LocalDate.of(2020,1,20));
-        phone1.isNew(true);
+        phone1.setNew(true);
 
         Phone phone2 = new Phone();
         phone2.setId(2);
@@ -37,7 +37,7 @@ public class PhoneData implements CommandLineRunner {
         phone2.setModel("S10");
         phone2.setPrice(new BigDecimal("4000.01"));
         phone2.setProduction(LocalDate.of(2019,10,20));
-        phone2.isNew(false);
+        phone2.setNew(false);
 
         phoneRepository.save(phone1);
         phoneRepository.save(phone2);
