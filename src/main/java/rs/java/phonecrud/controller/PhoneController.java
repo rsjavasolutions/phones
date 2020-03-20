@@ -1,10 +1,7 @@
 package rs.java.phonecrud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rs.java.phonecrud.model.Phone;
 import rs.java.phonecrud.repository.PhoneRepository;
 
@@ -23,12 +20,21 @@ public class PhoneController {
     }
 
     @GetMapping("/phones")
-    public List<Phone> allPhones(){
+    public Iterable<Phone> allPhones() {
         return phoneRepository.findAll();
     }
 
     @GetMapping("phones/{id}")
-    public Optional<Phone> getPhoneById(@PathVariable Integer id){
+    public Optional<Phone> getPhoneById(@PathVariable Integer id) {
         return phoneRepository.findById(id);
+    }
+
+    @GetMapping("phones/models")
+    public Iterable<Phone> getAllPhonesOfModel(@RequestParam (required = false) String model) {
+        if (model != null) {
+            return phoneRepository.findByModel(model);
+        } else {
+            return phoneRepository.findAll();
+        }
     }
 }
