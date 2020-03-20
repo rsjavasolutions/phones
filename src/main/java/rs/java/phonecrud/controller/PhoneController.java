@@ -56,4 +56,16 @@ public class PhoneController {
         }
     }
 
+    @PutMapping("phones/{id}")
+    public ResponseEntity<Phone> updatePhone(@PathVariable Integer id, @RequestBody Phone phone){
+        Optional<Phone> optionalPhone = phoneRepository.findById(id);
+        if (optionalPhone.isPresent()){
+            optionalPhone = Optional.of(phone);
+            phoneRepository.save(optionalPhone.get());
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
