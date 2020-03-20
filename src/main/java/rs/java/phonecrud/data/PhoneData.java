@@ -23,12 +23,23 @@ public class PhoneData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Phone phone = new Phone();
-        phone.setId(1);
-        phone.setBrand("Iphone");
-        phone.setModel("11");
-        phone.setPrice(new BigDecimal("3890.99"));
-        phone.setProduction(LocalDate.of(2020,1,20));
-        phone.isNew(true);
+        Phone phone1 = new Phone();
+        phone1.setId(1);
+        phone1.setBrand("Iphone");
+        phone1.setModel("11");
+        phone1.setPrice(new BigDecimal("3890.99"));
+        phone1.setProduction(LocalDate.of(2020,1,20));
+        phone1.isNew(true);
+
+        Phone phone2 = new Phone();
+        phone2.setId(2);
+        phone2.setBrand("Samsung");
+        phone2.setModel("S10");
+        phone2.setPrice(new BigDecimal("4000.01"));
+        phone2.setProduction(LocalDate.of(2019,10,20));
+        phone2.isNew(false);
+
+        phoneRepository.save(phone1);
+        phoneRepository.save(phone2);
     }
 }
