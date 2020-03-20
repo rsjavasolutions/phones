@@ -69,7 +69,7 @@ public class Phone {
         this.production = production;
     }
 
-    public boolean isNew() {
+    public boolean isNew(boolean b) {
         return isNew;
     }
 
