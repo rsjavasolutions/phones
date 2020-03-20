@@ -11,8 +11,5 @@ import java.util.Optional;
 @Repository
 public interface PhoneRepository extends CrudRepository<Phone, Integer> {
 
-
-    //Iterable<Employee> findByJob(String job)
     Iterable<Phone> findByModel(String model);
-
 }
