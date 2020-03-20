@@ -1,7 +1,6 @@
 package rs.java.phonecrud.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -9,6 +8,9 @@ import java.time.LocalDate;
 @Table(name = "phone")
 public class Phone {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String brand;
     private String model;
     private BigDecimal price;
@@ -18,12 +20,21 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(String brand, String model, BigDecimal price, LocalDate production, boolean isNew) {
+    public Phone(int id, String brand, String model, BigDecimal price, LocalDate production, boolean isNew) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.production = production;
         this.isNew = isNew;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBrand() {
